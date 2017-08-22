@@ -1,0 +1,41 @@
+<div class="container">
+	<header><h1>This is the header</h1></header>
+	<div class="row">
+		<h3>Search</h3>
+		<div class="col-md-4">
+			<input type="text" name="" ng-model="search">
+		</div>
+		<!-- <div class="col-md-3">
+			<b>University: </b>
+			<input type="text" name="">
+		</div>
+		<div class="col-md-3">
+			<b>Program: </b>
+			<input type="text" name="">
+		</div> -->
+	</div>
+	<br>
+
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<th>Serial No</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>University</th>
+					<th>Program</th>
+				</thead>
+				<tr ng-repeat="(key, value) in students | filter: search" ng-click="goToId(value.firebaseId)">
+					<td>{{key + 1}}</td>
+					<td>{{value.firstname}}</td>
+					<td>{{value.lastname}}</td>
+					<td>{{value.university}}</td>
+					<td>{{value.program}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<footer>This is the footer</footer>
+</div>

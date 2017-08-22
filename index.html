@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title>home Page</title>
+		<meta name="description" content="All the students studying abroad">
+		<meta name="keywords" content="university, colleges, USA, Pranjal, Singi, Pranjal Singi">
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
+	</head>
+	<body ng-app="profile">
+
+		<div ng-view></div>
+
+		<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+		<script src="app/firebase-init.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/angular.js"></script>
+		<script src="assets/js/angular-route.js"></script>
+		<script src="app/app.js"></script>
+		<script src="app/route.js"></script>
+		<script src="app/firebase-service.js"></script>
+		<script src="app/components/home/homeService.js"></script>
+		<script src="app/components/home/homeController.js"></script>
+		<script src="app/components/students/studentService.js"></script>
+		<script src="app/components/students/studentController.js"></script>
+
+		<!-- <script>
+			var db = firebase.database();
+			student = {
+			"firstname" : "Sucharita",
+			"lastname" 	: "Sarkar",
+			"university": "University of Delaware",
+			"degree"	: "Phd",
+			"program"	: "Biology",
+			"difficulty": "moderate" 
+			}
+			db.ref('students').push(student)
+			.then(function(success){
+				console.log("successfully added a user")
+			},function(error){
+				console.log(error);
+			});
+		</script> -->
+	</body>
+</html>
