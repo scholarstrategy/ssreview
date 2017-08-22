@@ -4,11 +4,11 @@ app.config(function($routeProvider){
 	console.log('coming inside though');
 	$routeProvider
 	.when("/", {
-		templateUrl 	: '/components/home/homeView.html', 
+		templateUrl 	: 'app/components/home/homeView.html', 
 		controller	: 'homeCtrl'
 	})
 	.when("/students", {
-		templateUrl	: '/components/students/studentView.html',
+		templateUrl	: 'app/components/students/studentView.html',
 		controller 	: 'studentCtrl'
 	})
 	// .when("/view/:student_id", {
