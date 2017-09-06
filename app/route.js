@@ -3,9 +3,9 @@ var app = angular.module('profile');
 app.config(function($routeProvider){
 	console.log('coming inside though');
 	$routeProvider
-	.when("/", {
-		templateUrl : 'app/components/home/homeView.html', 
-		controller	: 'homeCtlr'
+	.when("/login", {
+		templateUrl : 'app/components/login/loginView.html', 
+		controller	: 'loginCtlr'
 	})
 	.when("/students", {
 		templateUrl	: 'app/components/students/studentView.html',
@@ -19,6 +19,6 @@ app.config(function($routeProvider){
 	// 	// templateUrl	: "components"
 	// })
 	.otherwise({
-		redirectTo	: "/"
+		redirectTo	: "/login"
 	});
 });

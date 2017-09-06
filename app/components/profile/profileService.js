@@ -22,4 +22,15 @@ app.service("infoSrvc", function(){
 			failure(error);
 		});
 	}
+
+	this.getPrograms = function(){
+		programs = ['Computer Science', 'Chemical Engineering', 'Energy and Environmental Policy', 
+					'Biology', 'Mechanical Engineering', 'Electrical Engineering'];
+		return programs.sort();
+	}
+
+	this.getDegrees = function(){
+		degrees = ['Bachelors', 'Masters', 'Phd'];
+		return degrees;
+	}
 });

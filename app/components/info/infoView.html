@@ -4,7 +4,29 @@
 	<h3>General Information</h3>
 	<div class="row" ng-repeat="item in general_list track by $index">
 		<div class=col-md-3>
-			<label>{{general_names[$index]}}</label>
+			<label>{{general_names[$index][0]}}</label>
+		</div>
+		<div class=col-md-9>
+			<textarea class="form-control" name="{{item}}" rows="{{general_names[$index][1]}}" disabled>{{student[item]}}</textarea>
+		</div>
+	</div>
+	<hr>
+
+	<h3>Quality of curriculum</h3>
+	<div class="row" ng-repeat="item in curriculum_list track by $index">
+		<div class=col-md-3>
+			<label>{{curriculum_names[$index][0]}}</label>
+		</div>
+		<div class=col-md-9>
+			<textarea class="form-control" name="{{item}}" rows="{{curriculum_names[$index][1]}}" disabled>{{student[item]}}</textarea>
+		</div>
+	</div>
+	<hr>
+
+	<h3>Financial</h3>
+	<div class="row" ng-repeat="item in financial_list track by $index">
+		<div class=col-md-3>
+			<label>{{financial_names[$index]}}</label>
 		</div>
 		<div class=col-md-9>
 			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
@@ -12,16 +34,27 @@
 	</div>
 	<hr>
 
-	<h3>Education</h3>
-	<div class="row" ng-repeat="item in general_list track by $index">
+	<h3>Employment</h3>
+	<div class="row" ng-repeat="item in employment_list track by $index">
 		<div class=col-md-3>
-			<label>{{general_names[$index]}}</label>
+			<label>{{employment_names[$index]}}</label>
 		</div>
 		<div class=col-md-9>
 			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
 		</div>
-	</div>	
+	</div>
+	<hr>
 
-		
+	<h3>Networking</h3>
+	<div class="row" ng-repeat="item in networking_list track by $index">
+		<div class=col-md-3>
+			<label>{{networking_names[$index]}}</label>
+		</div>
+		<div class=col-md-9>
+			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
+		</div>
+	</div>
+
+	<br>
 	<footer>This is the footer</footer>
 </div>

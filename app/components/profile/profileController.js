@@ -4,8 +4,12 @@ app.controller("infoCtlr", ['$scope', '$routeParams', 'infoSrvc', function($scop
 	$scope.student = {};
 	$scope.params = '';
 
-	$scope.general_list = ['firstname','lastname', 'university', 'program']
-	$scope.general_names = ['First Name', 'Last Name', 'University', 'Program']
+	$scope.programs = infoSrvc.getPrograms();
+	$scope.degrees = infoSrvc.getDegrees();
+
+	$scope.general_list = ['firstname','lastname', 'university', 'degree', 'program']
+	$scope.general_names = ['First Name', 'Last Name', 'University', 'Degree', 'Program']
+
 
 	infoSrvc.getStudentById($routeParams.student_id, function(student){
 		$scope.student = student;
