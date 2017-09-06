@@ -1,6 +1,6 @@
 var app = angular.module("profile");
 
-app.controller("homeCtrl", ['$scope', 'homeSrvc', function($scope, homeSrvc){
+app.controller("homeCtlr", ['$scope', 'homeSrvc', function($scope, homeSrvc){
 	// $scope.users = [];
 
 	// indexSrvc.getUsers(function(users){

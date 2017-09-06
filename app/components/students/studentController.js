@@ -1,6 +1,6 @@
 var app = angular.module("profile");
 
-app.controller("studentCtrl", ['$scope', 'studentSrvc', '$location', function($scope, studentSrvc, $location){
+app.controller("studentCtlr", ['$scope', 'studentSrvc', '$location', function($scope, studentSrvc, $location){
 	$scope.students = [];
 
 	studentSrvc.getStudents(function(students){
@@ -13,6 +13,7 @@ app.controller("studentCtrl", ['$scope', 'studentSrvc', '$location', function($s
 
 	$scope.goToId = function(id){
 		// this line is not working. have a state change here and use UI.router
-		$location.path('#/https://google.com/'+id)
+		console.log(id);
+		$location.path('/info/'+id)
 	}
 }]);

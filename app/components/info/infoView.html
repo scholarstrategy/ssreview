@@ -1,0 +1,27 @@
+<div class="container">
+	<header><h1>This is the header</h1></header>
+
+	<h3>General Information</h3>
+	<div class="row" ng-repeat="item in general_list track by $index">
+		<div class=col-md-3>
+			<label>{{general_names[$index]}}</label>
+		</div>
+		<div class=col-md-9>
+			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
+		</div>
+	</div>
+	<hr>
+
+	<h3>Education</h3>
+	<div class="row" ng-repeat="item in general_list track by $index">
+		<div class=col-md-3>
+			<label>{{general_names[$index]}}</label>
+		</div>
+		<div class=col-md-9>
+			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
+		</div>
+	</div>	
+
+		
+	<footer>This is the footer</footer>
+</div>
