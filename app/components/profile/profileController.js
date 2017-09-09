@@ -1,18 +1,18 @@
 var app = angular.module("profile");
 
-app.controller("infoCtlr", ['$scope', '$routeParams', 'infoSrvc', function($scope, $routeParams, infoSrvc){
-	$scope.student = {};
+app.controller("profileCtlr", ['$scope', '$routeParams', '$window', 'profileSrvc', function($scope, $routeParams, $window, profileSrvc){
+	$scope.user = {};
 	$scope.params = '';
 
-	$scope.programs = infoSrvc.getPrograms();
-	$scope.degrees = infoSrvc.getDegrees();
+	$scope.programs = profileSrvc.getPrograms();
+	$scope.degrees = profileSrvc.getDegrees();
 
 	$scope.general_list = ['firstname','lastname', 'university', 'degree', 'program']
 	$scope.general_names = ['First Name', 'Last Name', 'University', 'Degree', 'Program']
 
 
-	infoSrvc.getStudentById($routeParams.student_id, function(student){
-		$scope.student = student;
+	profileSrvc.getUserById($routeParams.user_id, function(user){
+		$scope.user = user;
 		$scope.$apply();
 	}, function(error){
 		console.log(error);

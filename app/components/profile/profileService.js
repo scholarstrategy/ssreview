@@ -1,6 +1,6 @@
 var app = angular.module("profile");
 
-app.service("infoSrvc", function(){
+app.service("profileSrvc", function(){
 	var db = firebase.database();
 
 	var castSingleToStudent = function(object){
@@ -13,8 +13,8 @@ app.service("infoSrvc", function(){
 		console.log(object);
 	}
 
-	this.getStudentById = function(id, success, failure){
-		return db.ref(`students/${id}`).once("value")
+	this.getUserById = function(id, success, failure){
+		return db.ref(`users/${id}`).once("value")
 		.then(function(snapshot){
 			// success(castSingleToStudent(snapshot.val()));
 			success(snapshot.val());

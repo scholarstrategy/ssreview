@@ -13,7 +13,7 @@ app.service("studentSrvc", function(){
 	}
 
 	this.getStudents = function(success, failure){
-		return db.ref("students").once("value")
+		return db.ref("users").once("value")
 		.then(function(snapshot){
 			success(castManyToStudents(snapshot.val()));
 		}, function(error){

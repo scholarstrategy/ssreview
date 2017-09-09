@@ -1,6 +1,6 @@
 var app = angular.module('profile');
 
-app.service("firebaseService",function(){
+app.service("firebaseService", ['$window', function($window){
 	var db = firebase.database();
 
 	this.addUser = function(user){
@@ -28,4 +28,13 @@ app.service("firebaseService",function(){
 			failure(error);
 		})
 	}
-});
+
+	this.signOut = function(){
+		firebase.auth().signOut().then(function(success){
+			console.log("successfully logged out")
+			$window.sessionStorage.removeItem('id')
+		}, function(error){
+			console.log("sign out error" +error)
+		})
+	}
+}]);

@@ -1,19 +1,38 @@
 var app = angular.module("profile");
 
-app.controller("studentCtlr", ['$scope', 'studentSrvc', '$location', function($scope, studentSrvc, $location){
+app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 'firebaseService', function($scope, $window, studentSrvc, $location,firebaseService){
 	$scope.students = [];
 
-	studentSrvc.getStudents(function(students){
-		$scope.students = students;
-		console.log(students);
-		$scope.$apply();
-	}, function(error){
-		console.log(error);
-	});
+	$scope.populateStudents = function(){
+		studentSrvc.getStudents(function(students){
+			$scope.students = students;
+			console.log(students);
+			$scope.$apply();
+		}, function(error){
+			console.log(error);
+		});
+	}
 
 	$scope.goToId = function(id){
 		// this line is not working. have a state change here and use UI.router
 		console.log(id);
 		$location.path('/info/'+id)
+	}
+
+	$scope.edit = function(){
+		console.log('edit is called')
+		$location.path('/profile/'+$window.sessionStorage['id']);
+	}
+
+	$scope.student_signOut = function(){
+		firebaseService.signOut();
+		$location.path('/login');
+	}
+
+	if($window.sessionStorage['id'] != undefined && $window.sessionStorage['id'] != null){
+		$scope.populateStudents();
+	}
+	else{
+		$location.path('/login');
 	}
 }]);

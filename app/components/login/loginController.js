@@ -1,58 +1,54 @@
 var app = angular.module("profile");
 
-app.controller("loginCtlr", ['$scope', 'homeSrvc', function($scope, homeSrvc){
+app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'firebaseService', function($scope, $window, $location, loginSrvc, firebaseService){
 	// $scope.users = [];
 
-	// indexSrvc.getUsers(function(users){
-	// 	$scope.users = users;
-	// 	console.log(users);
-	// 	$scope.$apply();
-	// }, function(error){
-	// 	console.log(error);
-	// });
-
-
-
-	var provider = new firebase.auth.FacebookAuthProvider();
-
-	$scope.login_fb = function(){
-		console.log("came inside fb login")
-		firebase.auth().signInWithPopup(provider).then(function(result) {
-		  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-		  var token = result.credential.accessToken;
-		  // The signed-in user info.
-		  var user = result.user;
-		  // ...
-		}).catch(function(error) {
-		  // Handle Errors here.
-		  var errorCode = error.code;
-		  var errorMessage = error.message;
-		  // The email of the user's account used.
-		  var email = error.email;
-		  // The firebase.auth.AuthCredential type that was used.
-		  var credential = error.credential;
-		  // ...
+	$scope.check = function(){
+		firebase.auth().onAuthStateChanged(function(user) {
+			if(user){
+				console.log("user is signed-in")
+				loginSrvc.getUser(user.uid, function(success){
+					if(success == null){}
+					else if(success.approved){
+						console.log('session created')
+						$window.sessionStorage.setItem('id', user.uid);
+						$location.path('/students');
+						$scope.$apply();
+					}
+					else{
+						console.log('You haven\'t approved by the administrator');
+					}
+				}, function(error) {
+					// body...
+				});
+			}
+			else{
+				console.log("not logged in")
+			}
 		});
-		// firebase.auth().getRedirectResult().then(function(result) {
-		//   if (result.credential) {
-		//     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-		//     var token = result.credential.accessToken;
-		//     console.log(token);
-		//     // ...
-		//   }
-		//   // The signed-in user info.
-		//   var user = result.user;
-		// }).catch(function(error) {
-		//   // Handle Errors here.
-		//   var errorCode = error.code;
-		//   var errorMessage = error.message;
-		//   // The email of the user's account used.
-		//   var email = error.email;
-		//   // The firebase.auth.AuthCredential type that was used.
-		//   var credential = error.credential;
-		//   // ...
-		// });
+	}
+	$scope.check();
+
+	$scope.loginFb = function(){
+		loginSrvc.login_user(function(success){
+			result = success;
+			loginSrvc.getUser(result.user.uid, function(success){
+				if(success == null){
+					loginSrvc.createUser(result.user, function(){
+						$scope.check();
+					}, function(error){});
+					
+				}
+			}, function(error) {
+				// body...
+			});
+		}, function(error){
+			console.log(error);
+		});
 	}
 
-
+	$scope.login_signOut = function(){
+		firebaseService.signOut();
+		$location.path('/login');
+	}
 }]);
