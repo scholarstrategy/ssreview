@@ -92,11 +92,6 @@
 		</div>
 	</div>
 	<br>
-	<div class="row">
-		<div class="col-md-1 pull-right">
-			<button class="btn btn-primary" ng-click="save()">Save</button>
-		</div>
-	</div>
 	<hr>
 
 	<!-- <h3>General Information</h3>
@@ -161,17 +156,12 @@
 			$(".my-rating-4").starRating({
 			  totalStars: 5,
 			  emptyColor: 'lightgray',
-			  hoverColor: 'salmon',
 			  activeColor: 'salmon',
 			  disableAfterRate: false,
 			  initialRating: scope.user.rating,
 			  strokeWidth: 0,
 			  useGradient: false,
-			  callback: function(currentRating, $el){
-			    // alert('rated ' + currentRating);
-			    // console.log('DOM element ', $el);
-			    scope.user.rating = currentRating;
-			  }
+			  readOnly: true
 			});
 		}
 	</script>
