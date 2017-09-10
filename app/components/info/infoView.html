@@ -1,7 +1,105 @@
-<div class="container">
-	<header><h1>This is the header</h1></header>
+<div class="container" id="info">
+	<div class="row" style="padding-top: 20px">
+		<div class="col-md-10"><h3>Welcome to Scholar Strategy Review</h3></div>
+		<div class="col-md-1 pull-right" ng-click="info_signOut()"><button class="btn btn-danger">Sign Out</button></div>
+	</div>
 
 	<h3>General Information</h3>
+	<div class="row">
+		<div class="col-md-3">
+			<label>First Name</label>
+		</div>
+		<div class="col-md-9">
+			<input type="text" name="{{firstname}}" ng-model="user['firstname']" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Last Name</label>
+		</div>
+		<div class="col-md-9">
+			<input type="text" name="{{lastname}}" ng-model="user['lastname']" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>University</label>
+		</div>
+		<div class="col-md-9">
+			<input type="text" name="{{university}}" ng-model="user['university']">
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Degree</label>
+		</div>
+		<div class="col-md-9">
+			<select ng-model="user['degree']">
+				<option ng-repeat="degree in degrees">{{degree}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Program</label>
+		</div>
+		<div class="col-md-9">
+			<select ng-model="user['program']">
+				<option ng-repeat="program in programs">{{program}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Year Joined</label>
+		</div>
+		<div class="col-md-9">
+			<select ng-model="user['year_joined']">
+				<option ng-repeat="year in years">{{year}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Year Graduted</label>
+		</div>
+		<div class="col-md-9">
+			<select ng-model="user['year_graduated']">
+				<option ng-repeat="year in years">{{year}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Star Rating</label>
+		</div>
+		<div class="col-md-9 my-rating-4"></div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Review</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="user['review']"></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-1 pull-right">
+			<button class="btn btn-primary" ng-click="save()">Save</button>
+		</div>
+	</div>
+	<hr>
+
+	<!-- <h3>General Information</h3>
 	<div class="row" ng-repeat="item in general_list track by $index">
 		<div class=col-md-3>
 			<label>{{general_names[$index][0]}}</label>
@@ -10,9 +108,9 @@
 			<textarea class="form-control" name="{{item}}" rows="{{general_names[$index][1]}}" disabled>{{student[item]}}</textarea>
 		</div>
 	</div>
-	<hr>
+	<hr> -->
 
-	<h3>Quality of curriculum</h3>
+	<!-- <h3>Quality of curriculum</h3>
 	<div class="row" ng-repeat="item in curriculum_list track by $index">
 		<div class=col-md-3>
 			<label>{{curriculum_names[$index][0]}}</label>
@@ -53,8 +151,28 @@
 		<div class=col-md-9>
 			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
 		</div>
-	</div>
+	</div> -->
 
-	<br>
-	<footer>This is the footer</footer>
+	<!-- <br>
+	<footer>This is the footer</footer> -->
+	<script type="text/javascript">
+		function getInfoStar(){
+			var scope = angular.element($("#info")).scope();
+			$(".my-rating-4").starRating({
+			  totalStars: 5,
+			  emptyColor: 'lightgray',
+			  hoverColor: 'salmon',
+			  activeColor: 'salmon',
+			  disableAfterRate: false,
+			  initialRating: scope.user.rating,
+			  strokeWidth: 0,
+			  useGradient: false,
+			  callback: function(currentRating, $el){
+			    // alert('rated ' + currentRating);
+			    // console.log('DOM element ', $el);
+			    scope.user.rating = currentRating;
+			  }
+			});
+		}
+	</script>
 </div>

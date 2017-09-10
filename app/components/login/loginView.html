@@ -1,13 +1,14 @@
 <!-- <p>Here coming from home.html</p>
 <a href="#/students">Go to all students</a> -->
 <div class="container">
-	<div class="row" style="padding-top: 20px; margin: 0 auto">
+	<p class="message" ng-show="isMsg">** {{msg}} **</p>
+	<div class="row align_center">
 		<div class="col-md-10"><h3>Welcome to Scholar Strategy Review</h3></div>
 	</div>
 	
-	<div class="row" style="padding-top: 20px; margin: auto 0">
-		<div class="col-md-2" ng-click="loginFb()"><button class="btn btn-primary">Fb login</button></div>
-		<div class="col-md-3" ng-click="login_signOut()"><button class="btn btn-danger">Sign Out</button></div>
+	<div class="row justify-content-around">
+		<div class="col-md-offset-4 col-md-2 pad" ng-click="loginFb()"><button class="btn btn-primary">Login with Faceook</button></div>
+		<div class="col-md-2" ng-click="login_signOut()"><button class="btn btn-danger">Sign Out</button></div>
 	</div>
 	<!-- <div class="row">
 		<form>

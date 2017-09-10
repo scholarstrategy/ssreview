@@ -37,4 +37,21 @@ app.service("firebaseService", ['$window', function($window){
 			console.log("sign out error" +error)
 		})
 	}
+
+	this.getPrograms = function(){
+		programs = ['Computer Science', 'Chemical Engineering', 'Energy and Environmental Policy', 
+					'Biology', 'Mechanical Engineering', 'Electrical Engineering'];
+		return programs.sort();
+	}
+
+	this.getDegrees = function(){
+		degrees = ['Bachelors', 'Masters', 'Phd'];
+		return degrees;
+	}
+
+	this.getYears = function(start, end){
+		arr = []
+		for(i = start; i <= end; i++){arr.push(i);}
+		return arr;
+	}
 }]);

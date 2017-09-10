@@ -24,13 +24,13 @@ app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 
 
 	$scope.student_signOut = function(){
 		firebaseService.signOut();
-		$location.path('/login');
+		$location.path('/login?msg=Logged out successfully');
 	}
 
 	if($window.sessionStorage['id'] != undefined && $window.sessionStorage['id'] != null){
 		$scope.populateStudents();
 	}
 	else{
-		$location.path('/login');
+		$location.path('/login?msg=You need to login first');
 	}
 }]);

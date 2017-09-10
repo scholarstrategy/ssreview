@@ -1,7 +1,11 @@
 var app = angular.module("profile");
 
 app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'firebaseService', function($scope, $window, $location, loginSrvc, firebaseService){
-	// $scope.users = [];
+	$scope.msg = "";
+	if($location.search().msg != undefined){
+		$scope.msg = $location.search().msg;
+		$scope.isMsg = true;
+	}
 
 	$scope.check = function(){
 		firebase.auth().onAuthStateChanged(function(user) {
@@ -16,7 +20,9 @@ app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'fire
 						$scope.$apply();
 					}
 					else{
-						console.log('You haven\'t approved by the administrator');
+						$scope.msg = 'You haven\'t been approved by the administrator';
+						$scope.isMsg = true;
+						$scope.$apply();
 					}
 				}, function(error) {
 					// body...
@@ -49,6 +55,8 @@ app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'fire
 
 	$scope.login_signOut = function(){
 		firebaseService.signOut();
-		$location.path('/login');
+		$scope.msg = 'Logged out successfully';
+		$scope.isMsg = true;
+		$scope.$apply();
 	}
 }]);

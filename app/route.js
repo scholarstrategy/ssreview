@@ -10,7 +10,7 @@ app.config(function($routeProvider){
 		templateUrl	: 'app/components/students/studentView.html',
 		controller 	: 'studentCtlr'
 	})
-	.when("/info/:student_id", {
+	.when("/info/:user_id", {
 		templateUrl	: 'app/components/info/infoView.html',
 		controller	: 'infoCtlr'
 	})

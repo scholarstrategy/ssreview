@@ -8,6 +8,23 @@ tr {
 }*/
 
 .rate {
+	font-size: 2.5em;
+	color: red;
+}
+
+.message {
 	font-size: 2em;
 	color: red;
+	padding: 1em 1em;
+}
+
+.align_center {
+	margin: auto;
+	width: 50%;
+	text-align: center;
+	padding: 1em 1em;
+}
+
+.pad {
+	padding-bottom: 15px;
 }
