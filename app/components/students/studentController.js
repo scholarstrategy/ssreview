@@ -6,7 +6,7 @@ app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 
 	$scope.populateStudents = function(){
 		studentSrvc.getStudents(function(students){
 			$scope.students = students;
-			console.log(students);
+			// getStarStudents();
 			$scope.$apply();
 		}, function(error){
 			console.log(error);
@@ -14,8 +14,6 @@ app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 
 	}
 
 	$scope.goToId = function(id){
-		// this line is not working. have a state change here and use UI.router
-		console.log(id);
 		$location.path('/info/'+id)
 	}
 

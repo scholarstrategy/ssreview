@@ -13,7 +13,8 @@ app.service("studentSrvc", function(){
 	}
 
 	this.getStudents = function(success, failure){
-		return db.ref("users").once("value")
+		var ref = db.ref("users");
+		return ref.orderByChild('show').equalTo(true).once("value")
 		.then(function(snapshot){
 			success(castManyToStudents(snapshot.val()));
 		}, function(error){
