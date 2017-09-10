@@ -12,16 +12,21 @@ app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'fire
 			if(user){
 				console.log("user is signed-in")
 				loginSrvc.getUser(user.uid, function(success){
-					if(success == null){}
-					else if(success.approved){
-						console.log('session created')
+					// if(success == null){}
+					// else if(success.approved){
+					// 	console.log('session created')
+					// 	$window.sessionStorage.setItem('id', user.uid);
+					// 	$location.path('/students');
+					// 	$scope.$apply();
+					// }
+					// else{
+					// 	$scope.msg = 'You haven\'t been approved by the administrator';
+					// 	$scope.isMsg = true;
+					// 	$scope.$apply();
+					// }
+					if(success != null){
 						$window.sessionStorage.setItem('id', user.uid);
 						$location.path('/students');
-						$scope.$apply();
-					}
-					else{
-						$scope.msg = 'You haven\'t been approved by the administrator';
-						$scope.isMsg = true;
 						$scope.$apply();
 					}
 				}, function(error) {
