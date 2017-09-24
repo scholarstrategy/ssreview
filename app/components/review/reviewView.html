@@ -1,0 +1,204 @@
+<div class="container" id="reviewing">
+	<div class="row" style="padding-top: 20px">
+		<div class="col-md-10"><h3>Welcome to Scholar Strategy Review</h3></div>
+		<!-- <div class="col-md-1 pad" ng-click="change_show(true)" ng-hide="user.show"><button class="btn btn-primary">Show Profile</button></div>
+		<div class="col-md-1 pad" ng-click="change_show(false)" ng-show="user.show"><button class="btn btn-warning">Hide Profile</button></div> -->
+		<div class="col-md-1 pad" ng-click="back()"><button class="btn btn-info">Back</button></div>
+		<div class="col-md-1 pad" ng-click="profile_signOut()"><button class="btn btn-danger">Sign Out</button></div>
+	</div>
+
+	<!-- <h3 class="align_center">Review</h3> -->
+	<br><br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>First Name</label>
+		</div>
+		<div class="col-md-3">
+			<input class="form-control" type="text" name="{{firstname}}" ng-model="user['firstname']" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Last Name</label>
+		</div>
+		<div class="col-md-3">
+			<input class="form-control" type="text" name="{{lastname}}" ng-model="user['lastname']" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Year Joined<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-2">
+			<select ng-model="review['year_joined']" class="form-control">
+				<option ng-repeat="year in years">{{year}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Year Graduted<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-2">
+			<select ng-model="review['year_graduated']" class="form-control">
+				<option ng-repeat="year in years">{{year}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>University<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-4">
+			<select ng-model="review['university']" class="form-control">
+				<option ng-repeat="univ in universities">{{univ}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Degree<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-2">
+			<select ng-model="review['degree']" class="form-control">
+				<option ng-repeat="degree in degrees">{{degree}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Program<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-5">
+			<select ng-model="review['program']" class="form-control">
+				<option ng-repeat="program in programs">{{program}}</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Internship</label>
+		</div>
+		<div class="col-md-1">
+			<select ng-model="review['internship']" class="form-control">
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Fulltime</label>
+		</div>
+		<div class="col-md-1">
+			<select ng-model="review['fulltime']" class="form-control">
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Job Prospects</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="review['job_prospects']" placeholder="Review may include: How to apply? When to apply?"></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Expenses</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="review['expenses']" placeholder="May include detailed list of expenses from start to end"></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Curriculum/Teaching</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="review['curriculum']" placeholder="Which courses to take? Who are good mentors? Whom to be in touch with? Good/bad professors"></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Overall Program Feedback<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="review['overall']" placeholder="Write whatever you think is important which was not covered above and how was you overall experience. Suggestions for new students!!"></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Would you recommend you best friend to apply?<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-1">
+			<select ng-model="review['recommend']" class="form-control">
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>How satisfied are you with the program? [1 for not at all satisfied, 10 for fully statisfied]<span class="rate">*</span></label>
+		</div>
+		<div class="col-md-9 my-rating-4"></div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-offset-3 col-md-1">
+			<button class="btn btn-primary" ng-click="save()">Save</button>
+		</div>
+	</div>
+	<hr>
+
+	<!-- <h3>Education</h3>
+	<div class="row" ng-repeat="item in general_list track by $index">
+		<div class=col-md-3>
+			<label>{{general_names[$index]}}</label>
+		</div>
+		<div class=col-md-9>
+			<input type="textarea" name="{{item}}" ng-model="user[item]" disabled>
+		</div>
+	</div> -->	
+
+		
+	<!-- <footer>This is the footer</footer> -->
+	<script type="text/javascript">
+		function getStar(){
+			var scope = angular.element($("#reviewing")).scope();
+			$(".my-rating-4").starRating({
+			  totalStars: 10,
+			  useFullStars: true,
+			  emptyColor: 'lightgray',
+			  hoverColor: 'salmon',
+			  activeColor: 'salmon',
+			  disableAfterRate: false,
+			  initialRating: scope.review.rating,
+			  strokeWidth: 0,
+			  useGradient: false,
+			  callback: function(currentRating, $el){
+			    // alert('rated ' + currentRating);
+			    // console.log('DOM element ', $el);
+			    scope.review.rating = currentRating;
+			  }
+			});
+		}
+	</script>
+</div>

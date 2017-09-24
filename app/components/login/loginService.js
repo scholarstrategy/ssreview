@@ -46,7 +46,7 @@ app.service("loginSrvc", function(){
 			"approved"	: false,
 			"firstname"	: user.displayName.split(' ')[0],
 			"lastname" 	: user.displayName.split(' ')[1],
-			"show" 		: false
+			"reviewed" 	: false
 		}
 		return db.ref('users/'+user.uid).set(newUser).then(function(snapshot){
 			success();

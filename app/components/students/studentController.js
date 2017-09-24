@@ -17,9 +17,13 @@ app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 
 		$location.path('/info/'+id)
 	}
 
+	$scope.review = function(){
+		console.log('review is called')
+		$location.path('/review/'+$window.sessionStorage['id']);
+	}
+
 	$scope.edit = function(){
-		console.log('edit is called')
-		$location.path('/profile/'+$window.sessionStorage['id']);
+		$location.path('profile/'+$window.sessionStorage['id']);
 	}
 
 	$scope.student_signOut = function(){

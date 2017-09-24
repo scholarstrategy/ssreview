@@ -18,6 +18,10 @@ app.config(function($routeProvider){
 		templateUrl	: 'app/components/profile/profileView.html',
 		controller	: 'profileCtlr'
 	})
+	.when("/review/:user_id", {
+		templateUrl	: 'app/components/review/reviewView.html',
+		controller	: 'reviewCtlr'
+	})
 	.otherwise({
 		redirectTo	: "/login"
 	});

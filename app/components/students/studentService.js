@@ -13,12 +13,20 @@ app.service("studentSrvc", function(){
 	}
 
 	this.getStudents = function(success, failure){
-		var ref = db.ref("users");
-		return ref.orderByChild('show').equalTo(true).once("value")
-		.then(function(snapshot){
-			success(castManyToStudents(snapshot.val()));
-		}, function(error){
-			failure(error);
+		var reviewsRef = db.ref("reviews");
+
+		reviewsRef.on('child_added', snap => {
+			let userRef = db.ref('users/' + snap.key);
+			userRef.orderBy('reviewed').equalTo(true).once('value').then(userSnap => {
+				console.log(userSnap.val());
+			})
 		});
+
+		// return userRef.orderByChild('show').equalTo(true).once("value")
+		// .then(function(snapshot){
+		// 	success(castManyToStudents(snapshot.val()));
+		// }, function(error){
+		// 	failure(error);
+		// });
 	}
 });

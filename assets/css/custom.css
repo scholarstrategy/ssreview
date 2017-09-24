@@ -8,7 +8,7 @@ tr {
 }*/
 
 .rate {
-	font-size: 2.5em;
+	font-size: 1.5em;
 	color: red;
 }
 
@@ -27,4 +27,8 @@ tr {
 
 .pad {
 	padding-bottom: 15px;
+}
+
+.pad-around {
+	padding-right: 15px;
 }
