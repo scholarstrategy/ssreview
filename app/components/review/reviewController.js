@@ -18,10 +18,10 @@ app.controller("reviewCtlr", ['$scope', '$routeParams', '$window', 'reviewSrvc',
 	// $scope.general_names = ['First Name', 'Last Name', 'University', 'Degree', 'Program']
 
 	$scope.get_user = function(){
-		reviewSrvc.getUserById($routeParams.user_id, function(user){
+		firebaseService.getUserById(id, function(user){
 			$scope.user = user;
 			if(user.reviewed == true){
-				reviewSrvc.getReviewById(id, function(rev){
+				firebaseService.getReviewById(id, function(rev){
 					$scope.review = rev;
 					$scope.$apply()
 					getStar();
@@ -34,8 +34,6 @@ app.controller("reviewCtlr", ['$scope', '$routeParams', '$window', 'reviewSrvc',
 		}, function(error){
 			console.log(error);
 		});
-				
-
 	}
 
 	// $scope.change_show = function(val){

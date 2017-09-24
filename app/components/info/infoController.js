@@ -1,36 +1,24 @@
 var app = angular.module("profile");
 
 app.controller("infoCtlr", ['$scope', '$routeParams', '$window', 'infoSrvc', 'firebaseService', '$location',function($scope, $routeParams, $window, infoSrvc, firebaseService, $location){
-	$scope.user = {};
+	$scope.student_data = {};
 	$scope.params = '';
-
-	$scope.programs = firebaseService.getPrograms();
-	$scope.degrees = firebaseService.getDegrees();
-	$scope.years = firebaseService.getYears(2000, 2030);
-
-	// $scope.general_list = ['firstname','lastname', 'university', 'degree','program']
-	// $scope.general_names = [['First Name', 1], ['Last Name', 1], ['University', 1], ['Degree', 1], ['Program', 1]]
-
-	// $scope.curriculum_list = ['difficulty', 'good_courses', 'bad_courses', 'professors']
-	// $scope.curriculum_names = [['Program Difficulty', 2], ['Good Courses', 5], ['Bad Courses', 5], ['About different Professors', 3]]
-
-	// $scope.financial_list = ['loan', 'scholarship']
-	// $scope.financial_names = ['Loan Details', 'Scholarship']
-
-	// $scope.employment_list = ['internship', 'coop', 'oncampus_jobs', 'job_hunt', 'assistantship']
-	// $scope.employment_names = ['Intership', 'Co-ops', 'On Campus Jobs', 'Job Hunt', 'Assistantships available?']
-
-	// $scope.networking_list = ['meetups', 'clubs', 'diversity']
-	// $scope.networking_names = ['Meetups to attend', 'Student Clubs', 'Diversity']
+	id = $routeParams.user_id;
 
 	$scope.get_info_user = function(){
-		infoSrvc.getInfoById($routeParams.user_id, function(user){
-			$scope.user = user;
-			getInfoStar();
-			$scope.$apply();
+		firebaseService.getUserById(id, function(user){
+			firebaseService.getReviewById(id, function(rev){
+				$scope.student_data = Object.assign(user, rev);
+				$scope.$apply();
+				getStar();
+			}, function(error){console.log(error)});
 		}, function(error){
 			console.log(error);
 		});
+	}
+
+	$scope.back = function(){
+		$location.path('/students');
 	}
 
 	$scope.info_signOut = function(){

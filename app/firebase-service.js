@@ -29,6 +29,26 @@ app.service("firebaseService", ['$window', function($window){
 		})
 	}
 
+	this.getUserById = function(id, success, failure){
+		return db.ref(`users/${id}`).once("value")
+		.then(function(snapshot){
+			// success(castSingleToStudent(snapshot.val()));
+			success(snapshot.val());
+		}, function(error){
+			failure(error);
+		});
+	}
+
+	this.getReviewById = function(id, success, failure){
+		return db.ref(`reviews/${id}`).once("value")
+		.then(function(snapshot){
+			// success(castSingleToStudent(snapshot.val()));
+			success(snapshot.val());
+		}, function(error){
+			failure(error);
+		});
+	}
+
 	this.signOut = function(){
 		firebase.auth().signOut().then(function(success){
 			console.log("successfully logged out")

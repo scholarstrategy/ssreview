@@ -1,16 +1,20 @@
 <div class="container" id="info">
 	<div class="row" style="padding-top: 20px">
 		<div class="col-md-10"><h3>Welcome to Scholar Strategy Review</h3></div>
-		<div class="col-md-1 pull-right" ng-click="info_signOut()"><button class="btn btn-danger">Sign Out</button></div>
+		<!-- <div class="col-md-1 pad" ng-click="change_show(true)" ng-hide="user.show"><button class="btn btn-primary">Show Profile</button></div>
+		<div class="col-md-1 pad" ng-click="change_show(false)" ng-show="user.show"><button class="btn btn-warning">Hide Profile</button></div> -->
+		<div class="col-md-1 pad" ng-click="back()"><button class="btn btn-info">Back</button></div>
+		<div class="col-md-1 pad" ng-click="profile_signOut()"><button class="btn btn-danger">Sign Out</button></div>
 	</div>
 
-	<h3>General Information</h3>
+	<!-- <h3 class="align_center">Review</h3> -->
+	<br><br>
 	<div class="row">
 		<div class="col-md-3">
 			<label>First Name</label>
 		</div>
-		<div class="col-md-9">
-			<input type="text" name="{{firstname}}" ng-model="user['firstname']" disabled>
+		<div class="col-md-3">
+			<input class="form-control" type="text" name="{{firstname}}" ng-model="student_data['firstname']" disabled>
 		</div>
 	</div>
 	<br>
@@ -18,39 +22,8 @@
 		<div class="col-md-3">
 			<label>Last Name</label>
 		</div>
-		<div class="col-md-9">
-			<input type="text" name="{{lastname}}" ng-model="user['lastname']" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
 		<div class="col-md-3">
-			<label>University</label>
-		</div>
-		<div class="col-md-9">
-			<input type="text" name="{{university}}" ng-model="user['university']" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Degree</label>
-		</div>
-		<div class="col-md-9">
-			<select ng-model="user['degree']" disabled>
-				<option ng-repeat="degree in degrees">{{degree}}</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Program</label>
-		</div>
-		<div class="col-md-9">
-			<select ng-model="user['program']" disabled>
-				<option ng-repeat="program in programs">{{program}}</option>
-			</select>
+			<input class="form-control" type="text" name="{{lastname}}" ng-model="student_data['lastname']" disabled>
 		</div>
 	</div>
 	<br>
@@ -58,10 +31,8 @@
 		<div class="col-md-3">
 			<label>Year Joined</label>
 		</div>
-		<div class="col-md-9">
-			<select ng-model="user['year_joined']" disabled>
-				<option ng-repeat="year in years">{{year}}</option>
-			</select>
+		<div class="col-md-2">
+			<input class="form-control" type="text" ng-model="student_data['year_joined']" class="form-control" disabled>
 		</div>
 	</div>
 	<br>
@@ -69,96 +40,132 @@
 		<div class="col-md-3">
 			<label>Year Graduted</label>
 		</div>
-		<div class="col-md-9">
-			<select ng-model="user['year_graduated']" disabled>
-				<option ng-repeat="year in years">{{year}}</option>
-			</select>
+		<div class="col-md-2">
+			<input class="form-control" type="text" ng-model="student_data['year_graduated']" class="form-control" disabled>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col-md-3">
-			<label>Star Rating</label>
+			<label>University</label>
+		</div>
+		<div class="col-md-4">
+			<input class="form-control" type="text" ng-model="student_data['university']" class="form-control" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Degree</label>
+		</div>
+		<div class="col-md-2">
+			<input class="form-control" type="text" ng-model="student_data['degree']" class="form-control" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Program</label>
+		</div>
+		<div class="col-md-5">
+			<input class="form-control" type="text" ng-model="student_data['program']" class="form-control" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Internship</label>
+		</div>
+		<div class="col-md-1">
+			<input class="form-control" type="text" ng-model="student_data['internship']" class="form-control" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Fulltime</label>
+		</div>
+		<div class="col-md-1">
+			<input class="form-control" type="text" ng-model="student_data['fulltime']" class="form-control" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Job Prospects</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="student_data['job_prospects']" disabled></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Expenses</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="student_data['expenses']" disabled></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Curriculum/Teaching</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="student_data['curriculum']" disabled></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Overall Program Feedback</label>
+		</div>
+		<div class="col-md-9">
+			<textarea rows="10" class="form-control" ng-model="student_data['overall']" disabled></textarea>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>Would you recommend you best friend to apply?</label>
+		</div>
+		<div class="col-md-1">
+			<input class="form-control" type="text" ng-model="student_data['recommend']" class="form-control" disabled>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label>How satisfied are you with the program? [1 for not at all satisfied, 10 for fully statisfied]</label>
 		</div>
 		<div class="col-md-9 my-rating-4"></div>
 	</div>
 	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Review</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="user['review']" disabled></textarea>
-		</div>
-	</div>
-	<br>
 	<hr>
 
-	<!-- <h3>General Information</h3>
+	<!-- <h3>Education</h3>
 	<div class="row" ng-repeat="item in general_list track by $index">
 		<div class=col-md-3>
-			<label>{{general_names[$index][0]}}</label>
+			<label>{{general_names[$index]}}</label>
 		</div>
 		<div class=col-md-9>
-			<textarea class="form-control" name="{{item}}" rows="{{general_names[$index][1]}}" disabled>{{student[item]}}</textarea>
+			<input type="textarea" name="{{item}}" ng-model="user[item]" disabled>
 		</div>
-	</div>
-	<hr> -->
+	</div> -->	
 
-	<!-- <h3>Quality of curriculum</h3>
-	<div class="row" ng-repeat="item in curriculum_list track by $index">
-		<div class=col-md-3>
-			<label>{{curriculum_names[$index][0]}}</label>
-		</div>
-		<div class=col-md-9>
-			<textarea class="form-control" name="{{item}}" rows="{{curriculum_names[$index][1]}}" disabled>{{student[item]}}</textarea>
-		</div>
-	</div>
-	<hr>
-
-	<h3>Financial</h3>
-	<div class="row" ng-repeat="item in financial_list track by $index">
-		<div class=col-md-3>
-			<label>{{financial_names[$index]}}</label>
-		</div>
-		<div class=col-md-9>
-			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
-		</div>
-	</div>
-	<hr>
-
-	<h3>Employment</h3>
-	<div class="row" ng-repeat="item in employment_list track by $index">
-		<div class=col-md-3>
-			<label>{{employment_names[$index]}}</label>
-		</div>
-		<div class=col-md-9>
-			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
-		</div>
-	</div>
-	<hr>
-
-	<h3>Networking</h3>
-	<div class="row" ng-repeat="item in networking_list track by $index">
-		<div class=col-md-3>
-			<label>{{networking_names[$index]}}</label>
-		</div>
-		<div class=col-md-9>
-			<input type="textarea" name="{{item}}" ng-model="student[item]" disabled>
-		</div>
-	</div> -->
-
-	<!-- <br>
-	<footer>This is the footer</footer> -->
+		
+	<!-- <footer>This is the footer</footer> -->
 	<script type="text/javascript">
-		function getInfoStar(){
+		function getStar(){
 			var scope = angular.element($("#info")).scope();
 			$(".my-rating-4").starRating({
-			  totalStars: 5,
+			  totalStars: 10,
+			  useFullStars: true,
 			  emptyColor: 'lightgray',
+			  hoverColor: 'salmon',
 			  activeColor: 'salmon',
-			  disableAfterRate: false,
-			  initialRating: scope.user.rating,
+			  initialRating: scope.student_data.rating,
 			  strokeWidth: 0,
 			  useGradient: false,
 			  readOnly: true

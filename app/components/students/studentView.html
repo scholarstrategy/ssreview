@@ -2,11 +2,14 @@
 	<div class="row" style="padding-top: 20px">
 		<div class="col-md-8"><h3>Welcome to Scholar Strategy Review</h3></div>
 		<div class="col-md-1"><button class="btn btn-info" ng-click="review()">Add/Edit Review</button></div>
-		<div class="col-md-offset-1 col-md-1"><button ng-click="edit()" class="btn btn-primary">Profile</button></div>
+		<div class="col-md-offset-1 col-md-1"><button ng-click="edit()" class="btn btn-primary">My Profile</button></div>
 		<div class="col-md-1" ng-click="student_signOut()"><button class="btn btn-danger">Sign Out</button></div>
 	</div>
+	<br><br>
 	<div class="row">
-		<h3>Search</h3>
+		<div class="col-md-1">
+			<label style="font-size: 1.3em">Search</label>
+		</div>
 		<div class="col-md-4">
 			<input type="text" name="" ng-model="search">
 		</div>
@@ -44,7 +47,8 @@
 					<td>{{value.program}}</td>
 					<td>{{value.year_joined}}</td>
 					<td>{{value.year_graduated}}</td>
-					<td class="rate">{{"*".repeat(value.rating)}}</td>
+					<!-- <td class="rate">{{"*".repeat(value.rating)}}</td> -->
+					<td class="rate">{{value.rating}}</td>
 					<!-- <div class="my-raing"></div> -->
 				</tr>
 			</table>

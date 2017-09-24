@@ -17,8 +17,10 @@ app.service("studentSrvc", function(){
 
 		reviewsRef.on('child_added', snap => {
 			let userRef = db.ref('users/' + snap.key);
-			userRef.orderBy('reviewed').equalTo(true).once('value').then(userSnap => {
-				console.log(userSnap.val());
+			userRef.once('value').then(userSnap => {
+				userData = userSnap.val();
+				userData.firebaseId = snap.key;
+				success(Object.assign(snap.val(), userData));
 			})
 		});
 

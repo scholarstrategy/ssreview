@@ -4,8 +4,8 @@ app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 
 	$scope.students = [];
 
 	$scope.populateStudents = function(){
-		studentSrvc.getStudents(function(students){
-			$scope.students = students;
+		studentSrvc.getStudents(function(student){
+			$scope.students.push(student);
 			// getStarStudents();
 			$scope.$apply();
 		}, function(error){
@@ -14,7 +14,7 @@ app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 
 	}
 
 	$scope.goToId = function(id){
-		$location.path('/info/'+id)
+		$location.path('/info/'+id);
 	}
 
 	$scope.review = function(){
