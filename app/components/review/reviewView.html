@@ -9,164 +9,174 @@
 
 	<!-- <h3 class="align_center">Review</h3> -->
 	<br><br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>First Name</label>
-		</div>
-		<div class="col-md-3">
-			<input class="form-control" type="text" name="{{firstname}}" ng-model="user['firstname']" disabled>
-		</div>
+	<div class="loading-gif" ng-hide="show_page"></div>
+	<div class="alert alert-success alert-dismissible" ng-show="show_confirm">
+		<!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+		<strong>Success!</strong> Review saved..
 	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Last Name</label>
+	<div ng-show="show_page">
+		<!-- <div class="row">
+			<div class="col-md-3">
+				<label>First Name</label>
+			</div>
+			<div class="col-md-3">
+				<input class="form-control" type="text" name="{{firstname}}" ng-model="user['firstname']" disabled>
+			</div>
 		</div>
-		<div class="col-md-3">
-			<input class="form-control" type="text" name="{{lastname}}" ng-model="user['lastname']" disabled>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Last Name</label>
+			</div>
+			<div class="col-md-3">
+				<input class="form-control" type="text" name="{{lastname}}" ng-model="user['lastname']" disabled>
+			</div>
 		</div>
+		<br> -->
+		<div class="row">
+			<div class="col-md-3">
+				<label>Year Joined<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-2">
+				<select ng-model="review['year_joined']" class="form-control">
+					<option ng-repeat="year in years">{{year}}</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Year Graduted<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-2">
+				<select ng-model="review['year_graduated']" class="form-control">
+					<option ng-repeat="year in years">{{year}}</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>University<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-4">
+				<select ng-model="review['university']" class="form-control">
+					<option ng-repeat="univ in universities">{{univ}}</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Degree<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-2">
+				<select ng-model="review['degree']" class="form-control">
+					<option ng-repeat="degree in degrees">{{degree}}</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Program<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-5">
+				<select ng-model="review['program']" class="form-control">
+					<option ng-repeat="program in programs">{{program}}</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Internship Company</label>
+			</div>
+			<div class="col-md-4">
+				<input class="form-control" type="text" ng-model="review['internship']">
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Fulltime Company</label>
+			</div>
+			<div class="col-md-4">
+				<input class="form-control" type="text" ng-model="review['fulltime']">
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Job Prospects</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="review['job_prospects']" placeholder="Review may include: How to apply? When to apply?"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Expenses</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="review['expenses']" placeholder="May include detailed list of expenses from start to end"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Curriculum/Teaching</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="review['curriculum']" placeholder="Which courses to take? Who are good mentors? Whom to be in touch with? Good/bad professors"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>What are the negative points about this program?</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="review['negative']" placeholder="Write about you bad or annoying experiences"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Overall Program Feedback<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="review['overall']" placeholder="Write whatever you think is important which was not covered above and how was you overall experience. Suggestions for new students!!"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Would you recommend you best friend to apply?<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-1">
+				<select ng-model="review['recommend']" class="form-control">
+					<option>Yes</option>
+					<option>No</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>How satisfied are you with the program? [1 for not at all satisfied, 10 for fully statisfied]<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-9 my-rating-4"></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-offset-3 col-md-1">
+				<button class="btn btn-primary" ng-click="save()">Save</button>
+			</div>
+		</div>
+		<hr>
 	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Year Joined<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-2">
-			<select ng-model="review['year_joined']" class="form-control">
-				<option ng-repeat="year in years">{{year}}</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Year Graduted<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-2">
-			<select ng-model="review['year_graduated']" class="form-control">
-				<option ng-repeat="year in years">{{year}}</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>University<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-4">
-			<select ng-model="review['university']" class="form-control">
-				<option ng-repeat="univ in universities">{{univ}}</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Degree<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-2">
-			<select ng-model="review['degree']" class="form-control">
-				<option ng-repeat="degree in degrees">{{degree}}</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Program<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-5">
-			<select ng-model="review['program']" class="form-control">
-				<option ng-repeat="program in programs">{{program}}</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Internship</label>
-		</div>
-		<div class="col-md-1">
-			<select ng-model="review['internship']" class="form-control">
-				<option>Yes</option>
-				<option>No</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Fulltime</label>
-		</div>
-		<div class="col-md-1">
-			<select ng-model="review['fulltime']" class="form-control">
-				<option>Yes</option>
-				<option>No</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Job Prospects</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="review['job_prospects']" placeholder="Review may include: How to apply? When to apply?"></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Expenses</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="review['expenses']" placeholder="May include detailed list of expenses from start to end"></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Curriculum/Teaching</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="review['curriculum']" placeholder="Which courses to take? Who are good mentors? Whom to be in touch with? Good/bad professors"></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Overall Program Feedback<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="review['overall']" placeholder="Write whatever you think is important which was not covered above and how was you overall experience. Suggestions for new students!!"></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Would you recommend you best friend to apply?<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-1">
-			<select ng-model="review['recommend']" class="form-control">
-				<option>Yes</option>
-				<option>No</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>How satisfied are you with the program? [1 for not at all satisfied, 10 for fully statisfied]<span class="rate">*</span></label>
-		</div>
-		<div class="col-md-9 my-rating-4"></div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-offset-3 col-md-1">
-			<button class="btn btn-primary" ng-click="save()">Save</button>
-		</div>
-	</div>
-	<hr>
 
 	<!-- <h3>Education</h3>
 	<div class="row" ng-repeat="item in general_list track by $index">

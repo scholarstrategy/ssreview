@@ -2,11 +2,13 @@ var app = angular.module("profile");
 
 app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 'firebaseService', function($scope, $window, studentSrvc, $location,firebaseService){
 	$scope.students = [];
+	$scope.show_page = false;
 
 	$scope.populateStudents = function(){
 		studentSrvc.getStudents(function(student){
 			$scope.students.push(student);
 			// getStarStudents();
+			$scope.show_page = true;
 			$scope.$apply();
 		}, function(error){
 			console.log(error);

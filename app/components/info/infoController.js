@@ -3,12 +3,14 @@ var app = angular.module("profile");
 app.controller("infoCtlr", ['$scope', '$routeParams', '$window', 'infoSrvc', 'firebaseService', '$location',function($scope, $routeParams, $window, infoSrvc, firebaseService, $location){
 	$scope.student_data = {};
 	$scope.params = '';
+	$scope.show_page = false;
 	id = $routeParams.user_id;
 
 	$scope.get_info_user = function(){
 		firebaseService.getUserById(id, function(user){
 			firebaseService.getReviewById(id, function(rev){
 				$scope.student_data = Object.assign(user, rev);
+				$scope.show_page = true;
 				$scope.$apply();
 				getStar();
 			}, function(error){console.log(error)});

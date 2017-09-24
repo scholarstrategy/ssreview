@@ -83,5 +83,19 @@ app.service("firebaseService", ['$window', function($window){
 		return ['Aerospace', 'Business Analytics', 'Chemical/Petroleum', 'Civil/Construction', 'Computer Science/Information Technology', 'Data Science', 'Electrical/Electronics', 'Engineering Management/Technology Management (MEM)', 'Financial Engineering', 'Industrial/Operations Research', 'Management Information System (MIS)', 'Mechanical', 'Software Engineering']
 	}
 
-
+	// var db = firebase.database();
+	// student = {
+	// "firstname" : "Sucharita",
+	// "lastname" 	: "Sarkar",
+	// "university": "University of Delaware",
+	// "degree"	: "Phd",
+	// "program"	: "Biology",
+	// "difficulty": "moderate" 
+	// }
+	// db.ref('students').push(student)
+	// .then(function(success){
+	// 	console.log("successfully added a user")
+	// },function(error){
+	// 	console.log(error);
+	// });
 }]);

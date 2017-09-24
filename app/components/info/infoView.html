@@ -9,140 +9,152 @@
 
 	<!-- <h3 class="align_center">Review</h3> -->
 	<br><br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>First Name</label>
+	<div class="loading-gif" ng-hide="show_page"></div>
+	<div ng-show="show_page">
+		<div class="row">
+			<div class="col-md-3">
+				<label>First Name</label>
+			</div>
+			<div class="col-md-3">
+				<input class="form-control" type="text" name="{{firstname}}" ng-model="student_data['firstname']" disabled>
+			</div>
 		</div>
-		<div class="col-md-3">
-			<input class="form-control" type="text" name="{{firstname}}" ng-model="student_data['firstname']" disabled>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Last Name</label>
+			</div>
+			<div class="col-md-3">
+				<input class="form-control" type="text" name="{{lastname}}" ng-model="student_data['lastname']" disabled>
+			</div>
 		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Year Joined</label>
+			</div>
+			<div class="col-md-2">
+				<input class="form-control" type="text" ng-model="student_data['year_joined']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Year Graduted</label>
+			</div>
+			<div class="col-md-2">
+				<input class="form-control" type="text" ng-model="student_data['year_graduated']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>University</label>
+			</div>
+			<div class="col-md-4">
+				<input class="form-control" type="text" ng-model="student_data['university']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Degree</label>
+			</div>
+			<div class="col-md-2">
+				<input class="form-control" type="text" ng-model="student_data['degree']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Program</label>
+			</div>
+			<div class="col-md-5">
+				<input class="form-control" type="text" ng-model="student_data['program']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Internship</label>
+			</div>
+			<div class="col-md-1">
+				<input class="form-control" type="text" ng-model="student_data['internship']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Fulltime</label>
+			</div>
+			<div class="col-md-1">
+				<input class="form-control" type="text" ng-model="student_data['fulltime']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Job Prospects</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="student_data['job_prospects']" disabled></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Expenses</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="student_data['expenses']" disabled></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Curriculum/Teaching</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="student_data['curriculum']" disabled></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>What are the negative points about this program?</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="student_data['negative']"></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Overall Program Feedback</label>
+			</div>
+			<div class="col-md-9">
+				<textarea rows="10" class="form-control" ng-model="student_data['overall']" disabled></textarea>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Would you recommend you best friend to apply?</label>
+			</div>
+			<div class="col-md-1">
+				<input class="form-control" type="text" ng-model="student_data['recommend']" class="form-control" disabled>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>How satisfied are you with the program? [1 for not at all satisfied, 10 for fully statisfied]</label>
+			</div>
+			<div class="col-md-9 my-rating-4"></div>
+		</div>
+		<br>
+		<hr>
 	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Last Name</label>
-		</div>
-		<div class="col-md-3">
-			<input class="form-control" type="text" name="{{lastname}}" ng-model="student_data['lastname']" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Year Joined</label>
-		</div>
-		<div class="col-md-2">
-			<input class="form-control" type="text" ng-model="student_data['year_joined']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Year Graduted</label>
-		</div>
-		<div class="col-md-2">
-			<input class="form-control" type="text" ng-model="student_data['year_graduated']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>University</label>
-		</div>
-		<div class="col-md-4">
-			<input class="form-control" type="text" ng-model="student_data['university']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Degree</label>
-		</div>
-		<div class="col-md-2">
-			<input class="form-control" type="text" ng-model="student_data['degree']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Program</label>
-		</div>
-		<div class="col-md-5">
-			<input class="form-control" type="text" ng-model="student_data['program']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Internship</label>
-		</div>
-		<div class="col-md-1">
-			<input class="form-control" type="text" ng-model="student_data['internship']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Fulltime</label>
-		</div>
-		<div class="col-md-1">
-			<input class="form-control" type="text" ng-model="student_data['fulltime']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Job Prospects</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="student_data['job_prospects']" disabled></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Expenses</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="student_data['expenses']" disabled></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Curriculum/Teaching</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="student_data['curriculum']" disabled></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Overall Program Feedback</label>
-		</div>
-		<div class="col-md-9">
-			<textarea rows="10" class="form-control" ng-model="student_data['overall']" disabled></textarea>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Would you recommend you best friend to apply?</label>
-		</div>
-		<div class="col-md-1">
-			<input class="form-control" type="text" ng-model="student_data['recommend']" class="form-control" disabled>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>How satisfied are you with the program? [1 for not at all satisfied, 10 for fully statisfied]</label>
-		</div>
-		<div class="col-md-9 my-rating-4"></div>
-	</div>
-	<br>
-	<hr>
 
 	<!-- <h3>Education</h3>
 	<div class="row" ng-repeat="item in general_list track by $index">

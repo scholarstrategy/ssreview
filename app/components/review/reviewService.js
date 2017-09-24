@@ -13,9 +13,10 @@ app.service("reviewSrvc", function(){
 		console.log(object);
 	}
 
-	this.save = function(id, user){
+	this.save = function(id, user, success){
 		return db.ref(`users/${id}`).set(user).then(function(snapshot){
 			console.log('saved user');
+			success();
 		}, function(error){
 			console.log('user not saved');
 		});

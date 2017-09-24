@@ -5,6 +5,8 @@ app.controller("reviewCtlr", ['$scope', '$routeParams', '$window', 'reviewSrvc',
 	$scope.user = {};
 	$scope.review = {};
 	$scope.review.rating = 0;
+	$scope.show_page = false;
+	$scope.show_confirm = false;
 	id = $routeParams.user_id;
 	$scope.num = 3;
 
@@ -30,6 +32,7 @@ app.controller("reviewCtlr", ['$scope', '$routeParams', '$window', 'reviewSrvc',
 				console.log("nothing")
 				getStar();
 			}
+			$scope.show_page = true;
 			$scope.$apply();
 		}, function(error){
 			console.log(error);
@@ -64,9 +67,14 @@ app.controller("reviewCtlr", ['$scope', '$routeParams', '$window', 'reviewSrvc',
 		// 	console.log("can't save it");
 		// });
 		if(check_validation()){
+			$scope.show_page = false;
 			$scope.user.reviewed = true;
 			reviewSrvc.saveReview(id, $scope.review, function(){
-				reviewSrvc.save(id, $scope.user);
+				reviewSrvc.save(id, $scope.user, function(){
+					$scope.show_page = true;
+					$scope.show_confirm = true;
+					$scope.$apply();
+				});
 			});
 		}
 		else{

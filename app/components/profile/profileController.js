@@ -5,6 +5,8 @@ app.controller("profileCtlr", ['$scope', '$routeParams', '$window', 'profileSrvc
 	$scope.user = {};
 	$scope.params = '';
 	$scope.num = 3;
+	$scope.show_page = false;
+	$scope.show_confirm = false;
 
 	$scope.programs = firebaseService.getPrograms();
 	$scope.degrees = firebaseService.getDegrees();
@@ -17,6 +19,7 @@ app.controller("profileCtlr", ['$scope', '$routeParams', '$window', 'profileSrvc
 	$scope.get_user = function(){
 		profileSrvc.getUserById($routeParams.user_id, function(user){
 			$scope.user = user;
+			$scope.show_page = true;
 			$scope.$apply();
 		}, function(error){
 			console.log(error);
@@ -29,8 +32,11 @@ app.controller("profileCtlr", ['$scope', '$routeParams', '$window', 'profileSrvc
 
 	$scope.save = function(){
 		console.log("came in save")
+		$scope.show_page = false;
 		if($scope.user != ""){
 			profileSrvc.save($routeParams.user_id, $scope.user, function(success){
+				$scope.show_page = true;
+				$scope.show_confirm = true;
 				$scope.$apply();
 				console.log('saved');
 			}, function(error){

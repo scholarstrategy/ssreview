@@ -7,49 +7,56 @@
 
 	<!-- <h3 class="align_center">Profile</h3> -->
 	<br><br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>First Name</label>
-		</div>
-		<div class="col-md-4">
-			<input class="form-control"  type="text" name="{{firstname}}" ng-model="user['firstname']" disabled>
-		</div>
+	<div class="loading-gif" ng-hide="show_page"></div>
+	<div class="alert alert-success alert-dismissible" ng-show="show_confirm">
+		<!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+		<strong>Success!</strong> Profile saved..
 	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Last Name</label>
+	<div ng-show="show_page">
+		<div class="row">
+			<div class="col-md-3">
+				<label>First Name</label>
+			</div>
+			<div class="col-md-4">
+				<input class="form-control"  type="text" name="{{firstname}}" ng-model="user['firstname']" disabled>
+			</div>
 		</div>
-		<div class="col-md-4">
-			<input class="form-control" type="text" name="{{lastname}}" ng-model="user['lastname']" disabled>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Last Name</label>
+			</div>
+			<div class="col-md-4">
+				<input class="form-control" type="text" name="{{lastname}}" ng-model="user['lastname']" disabled>
+			</div>
 		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>LinkedIn</label>
+			</div>
+			<div class="col-md-6">
+				<input class='form-control' type="text" name="{{linkedin}}" ng-model="user['linkedin']" placeholder="https://www.linkedin.com/in/example">
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>Status<span style="color:red">*</span></label>
+			</div>
+			<div class="col-md-2">
+				<select ng-model="user['status']" class="form-control">
+					<option ng-repeat="status in user_status">{{status}}</option>
+				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-offset-3 col-md-1">
+				<button class="btn btn-primary" ng-click="save()">Save</button>
+			</div>
+		</div>	
 	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>LinkedIn</label>
-		</div>
-		<div class="col-md-6">
-			<input class='form-control' type="text" name="{{linkedin}}" ng-model="user['linkedin']" placeholder="https://www.linkedin.com/in/example">
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-3">
-			<label>Status<span style="color:red">*</span></label>
-		</div>
-		<div class="col-md-2">
-			<select ng-model="user['status']" class="form-control">
-				<option ng-repeat="status in user_status">{{status}}</option>
-			</select>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-offset-3 col-md-1">
-			<button class="btn btn-primary" ng-click="save()">Save</button>
-		</div>
-	</div>	
 
 	<!-- <footer>This is the footer</footer> -->
 </div>
