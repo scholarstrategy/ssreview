@@ -1,55 +1,76 @@
-<div class="container" id="all_students">
+<div class="container-fluid" id="all_students">
 	<div class="row" style="padding-top: 20px">
-		<div class="col-md-8"><h3>Welcome to Scholar Strategy Review</h3></div>
+		<div class="col-md-8"><h3>Scholar Strategy Review</h3></div>
 		<div class="col-md-1"><button class="btn btn-info" ng-click="review()">Add/Edit Review</button></div>
 		<div class="col-md-offset-1 col-md-1"><button ng-click="edit()" class="btn btn-primary">My Profile</button></div>
 		<div class="col-md-1" ng-click="student_signOut()"><button class="btn btn-danger">Sign Out</button></div>
 	</div>
-	<br><br>
+	<hr><br>
 	<div class="loading-gif" ng-hide="show_page"></div>
 	<div ng-show="show_page">
 		<div class="row">
-			<div class="col-md-1">
-				<label style="font-size: 1.3em">Search</label>
+			<div class="col-md-3">
+				<label style="font-size: 1.1em">Search</label>
+				<input type="text" class="form-control" ng-model="search">
 			</div>
-			<div class="col-md-4">
-				<input type="text" name="" ng-model="search">
-			</div>
-			<!-- <div class="col-md-3">
-				<b>University: </b>
-				<input type="text" name="">
+			<div class="col-md-3 col-md-offset-3">
+				<label style="font-size: 1.1em">University</label>
+				<select ng-model="univ" class="form-control">
+					<option ng-repeat="un in univs">{{un}}</option>
+				</select>
 			</div>
 			<div class="col-md-3">
-				<b>Program: </b>
-				<input type="text" name="">
+				<label style="font-size: 1.1em">Program</label>
+				<select ng-model="prog" class="form-control">
+					<option ng-repeat="pr in progs">{{pr}}</option>
+				</select>
+			</div>
+			<!-- <div class="col-md-2" >
+				
+			</div> -->
+			<!-- <div class="col-md-1 col-md-offset-3">
+				<label style="font-size: 1.1em">University</label>
+			</div>
+			<div class="col-md-2">
+				<select ng-model="univ" class="form-control">
+					<option ng-repeat="un in univs">{{un}}</option>
+				</select>
+			</div>
+			<div class="col-md-1">
+				<label style="font-size: 1.1em">Program</label>
+			</div>
+			<div class="col-md-2">
+				<select ng-model="prog" class="form-control">
+					<option ng-repeat="pr in progs">{{pr}}</option>
+				</select>
 			</div> -->
 		</div>
 		<br>
 
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-hover">
+				<table class="table table-hover table-responsive table-bordered">
 					<thead>
-						<th>Serial No</th>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>University</th>
-						<th>Degree</th>
-						<th>Program</th>
-						<th>Joined</th>
-						<th>Graduate</th>
-						<th>Rating</th>
+						<th class="col-md-1">First Name</th>
+						<th class="col-md-1">Last Name</th>
+						<th class="col-md-2">University</th>
+						<th class="col-md-1">Degree</th>
+						<th class="col-md-2">Program</th>
+						<th class="col-md-1">GPA</th>
+						<th class="col-md-1">Graduated</th>
+						<th class="col-md-2">Feedback</th>
+						<th class="col-md-1">Rating</th>
 					</thead>
-					<tr ng-repeat="(key, value) in students | filter: search" ng-click="goToId(value.firebaseId)">
-						<td>{{key + 1}}</td>
+					<tr ng-repeat="(key, value) in students | filter: search | filter : {university : univ} | filter: {program : prog}" ng-click="goToId(value.firebaseId)">
 						<td>{{value.firstname}}</td>
 						<td>{{value.lastname}}</td>
 						<td>{{value.university}}</td>
 						<td>{{value.degree}}</td>
 						<td>{{value.program}}</td>
-						<td>{{value.year_joined}}</td>
+						<td>{{value.gpa}}</td>
 						<td>{{value.year_graduated}}</td>
 						<!-- <td class="rate">{{"*".repeat(value.rating)}}</td> -->
+						<td>{{value.overall.substring(0, 30)}}...</td>
 						<td class="rate">{{value.rating}}</td>
 						<!-- <div class="my-raing"></div> -->
 					</tr>

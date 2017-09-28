@@ -1,6 +1,6 @@
 <div class="container" id="reviewing">
 	<div class="row" style="padding-top: 20px">
-		<div class="col-md-10"><h3>Welcome to Scholar Strategy Review</h3></div>
+		<div class="col-md-10"><h3>Scholar Strategy Review</h3></div>
 		<!-- <div class="col-md-1 pad" ng-click="change_show(true)" ng-hide="user.show"><button class="btn btn-primary">Show Profile</button></div>
 		<div class="col-md-1 pad" ng-click="change_show(false)" ng-show="user.show"><button class="btn btn-warning">Hide Profile</button></div> -->
 		<div class="col-md-1 pad" ng-click="back()"><button class="btn btn-info">Back</button></div>
@@ -8,7 +8,7 @@
 	</div>
 
 	<!-- <h3 class="align_center">Review</h3> -->
-	<br><br>
+	<hr><br>
 	<div class="loading-gif" ng-hide="show_page"></div>
 	<div class="alert alert-success alert-dismissible" ng-show="show_confirm">
 		<!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
@@ -46,7 +46,7 @@
 		<br>
 		<div class="row">
 			<div class="col-md-3">
-				<label>Year Graduted<span class="rate">*</span></label>
+				<label>Year Graduated (Expected)<span class="rate">*</span></label>
 			</div>
 			<div class="col-md-2">
 				<select ng-model="review['year_graduated']" class="form-control">
@@ -85,6 +85,16 @@
 				<select ng-model="review['program']" class="form-control">
 					<option ng-repeat="program in programs">{{program}}</option>
 				</select>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<label>GPA<span class="rate">*</span></label>
+			</div>
+			<div class="col-md-1">
+				<input class="form-control" type="text" ng-model="review['gpa']">
+				
 			</div>
 		</div>
 		<br>

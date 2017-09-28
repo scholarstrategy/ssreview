@@ -3,6 +3,10 @@ var app = angular.module("profile");
 app.controller("studentCtlr", ['$scope', '$window', 'studentSrvc', '$location', 'firebaseService', function($scope, $window, studentSrvc, $location,firebaseService){
 	$scope.students = [];
 	$scope.show_page = false;
+	$scope.univs = firebaseService.getUniversities();
+	$scope.univs.unshift("");
+	$scope.progs = firebaseService.getPrograms();
+	$scope.progs.unshift("");
 
 	$scope.populateStudents = function(){
 		studentSrvc.getStudents(function(student){

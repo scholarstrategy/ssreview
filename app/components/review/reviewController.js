@@ -56,7 +56,7 @@ app.controller("reviewCtlr", ['$scope', '$routeParams', '$window', 'reviewSrvc',
 	}
 
 	check_validation = function(){
-		return !(check_empty($scope.review.year_joined) || check_empty($scope.review.year_graduated) || check_empty($scope.review.university) || check_empty($scope.review.program) || check_empty($scope.review.degree) || check_empty($scope.review.overall) || check_empty($scope.review.recommend) || check_empty($scope.review.rating));
+		return !(check_empty($scope.review.year_joined) || check_empty($scope.review.year_graduated) || check_empty($scope.review.university) || check_empty($scope.review.program) || check_empty($scope.review.degree) || check_empty($scope.review.overall) || check_empty($scope.review.recommend) || check_empty($scope.review.rating) || check_empty($scope.review.gpa));
 	}
 
 	$scope.save = function(){
