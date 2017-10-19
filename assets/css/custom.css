@@ -11,6 +11,16 @@ tr {
 	color: red;
 }
 
+.rate-red {
+	font-size: 1.3em;
+	color: red;
+}
+
+.rate-green {
+	font-size: 1.3em;
+	color: green;
+}
+
 .message {
 	font-size: 2em;
 	color: red;

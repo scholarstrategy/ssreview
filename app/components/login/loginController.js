@@ -2,6 +2,7 @@ var app = angular.module("profile");
 
 app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'firebaseService', function($scope, $window, $location, loginSrvc, firebaseService){
 	$scope.msg = "";
+	$scope.firsttime = false;
 	if($location.search().msg != undefined){
 		$scope.msg = $location.search().msg;
 		$scope.isMsg = true;
@@ -25,8 +26,15 @@ app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'fire
 					// 	$scope.$apply();
 					// }
 					if(success != null){
+						console.log("came in user logging")
 						$window.sessionStorage.setItem('id', user.uid);
-						$location.path('/students');
+						if($scope.firsttime){
+							$scope.firsttime = false;
+							$location.path('profile/'+$window.sessionStorage['id']);
+						}
+						else{
+							$location.path('/students');
+						}
 						$scope.$apply();
 					}
 				}, function(error) {
@@ -46,6 +54,7 @@ app.controller("loginCtlr", ['$scope', '$window','$location', 'loginSrvc', 'fire
 			loginSrvc.getUser(result.user.uid, function(success){
 				if(success == null){
 					loginSrvc.createUser(result.user, function(){
+						$scope.firsttime = true;
 						$scope.check();
 					}, function(error){});
 					
