@@ -80,7 +80,7 @@ app.service("firebaseService", ['$window', function($window){
 	}
 
 	this.getPrograms = function(){
-		return ['Aerospace', 'Business Analytics', 'Chemical/Petroleum', 'Civil/Construction', 'Computer Science/Information Technology', 'Data Science', 'Electrical/Electronics', 'Engineering Management/Technology Management (MEM)', 'Financial Engineering', 'Industrial/Operations Research', 'Management Information System (MIS)', 'Mechanical', 'Software Engineering']
+		return ['Aerospace', 'Business Analytics', 'Chemical/Petroleum', 'Civil/Construction', 'Computer Science/Information Technology', 'Data Science', 'Electrical/Electronics', 'Engineering Management/Technology Management (MEM)', 'Financial Engineering', 'Industrial/Operations Research', 'Management Information System (MIS)', 'Mechanical', 'Power and Energy', 'Software Engineering']
 	}
 
 	// var db = firebase.database();
